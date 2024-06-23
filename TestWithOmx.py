@@ -61,13 +61,18 @@ for u, v, data in graph.edges(data=True):
 # Plot the graph
 fig, ax = plt.subplots(figsize=(12, 12))
 ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+
+almacen_ElHoyo_id = 6394939470
 highlight_nodes = gdf['@id'].tolist()
-nc = ['red' if node in highlight_nodes else 'blue' for node in graph.nodes()]
+
+nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else 'blue') for node in graph.nodes()]
 node_pos = {node: (data['x'], data['y']) for node, data in graph.nodes(data=True)}
 nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, ax=ax)
+
 
 # Draw edge labels to show weights
 edge_weights = nx.get_edge_attributes(graph, 'weight')
 nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+
 
 plt.show()
