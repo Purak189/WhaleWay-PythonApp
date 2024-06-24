@@ -13,6 +13,12 @@ import heapq
 import math
 import random
 
+# Definir la clase Tienda
+class Tienda:
+    def __init__(self, id, nombre, cantidad_productos):
+        self.id = id
+        self.nombre = nombre
+        self.cantidad_productos = cantidad_productos
 
 # Load the road network graph for a specific area
 place_name = "Independencia, Lima, Perú"
@@ -43,7 +49,7 @@ for idx, row in gdf.iterrows():
     y, x = row.geometry.y, row.geometry.x
     shop_type = row['name'] if pd.notna(row['name']) else 'N/A'
     graph.add_node(node_id, y=y, x=x, shop=shop_type, pos=(x, y))
-    
+
     # Find nearest neighbors and add edges with weights
     point = np.array([np.radians(y), np.radians(x)])
     dist, ind = tree.query([point], k=5)  # Ajusta k según sea necesario
@@ -62,15 +68,18 @@ for u, v, data in graph.edges(data=True):
         distance = calculate_distance_geodesic(y1, x1, y2, x2)
         data['weight'] = distance
 
-# Leer los archivos externos Nodos_Tiendas_ids y Tienda_Cantidad_Productos
-with open('WhaleWay-PythonApp/Nodos_Tiendas_ids.txt') as f:
-    nodos_tiendas_ids = [int(id.strip()) for line in f for id in line.split(',')]
+# Definir los nodos y cantidades de productos
+nodos = [3792309447, 4439656987, 4457301898, 4534744690, 5605915215, 5862352768]
+cantidades_productos = [30, 40, 40, 40, 90, 120]
 
-with open('WhaleWay-PythonApp/Tienda_Cantidad_Productos.txt') as f:
-    tienda_cantidad_productos = [int(num) for line in f for num in line.strip().split(',')]
-
-# Asignar la cantidad de productos a cada tienda
-tiendas_productos = dict(zip(nodos_tiendas_ids, tienda_cantidad_productos))
+# Crear una lista de objetos Tienda
+tiendas = []
+tiendas_productos = {}  # Diccionario que mapea ID de tienda a objeto Tienda
+for id, cantidad in zip(nodos, cantidades_productos):
+    nombre = f"Tienda {id}"
+    tienda = Tienda(id, nombre, cantidad)
+    tiendas.append(tienda)
+    tiendas_productos[id] = tienda
 
 # Modificar la función dijkstra para incluir la repartición de productos
 def dijkstra_con_reparto(G, s, t, tiendas_productos):
@@ -79,7 +88,7 @@ def dijkstra_con_reparto(G, s, t, tiendas_productos):
     distances = {node: float('inf') for node in G.nodes}
     distances[s] = 0
     previous_nodes = {node: None for node in G.nodes}
-    productos_repartidos = {tienda: 0 for tienda in tiendas_productos}
+    productos_repartidos = {tienda: 0 for tienda in tiendas_productos.values()}
     total_productos_entregados = 0
 
     while q:
@@ -106,7 +115,7 @@ def dijkstra_con_reparto(G, s, t, tiendas_productos):
                         weight = float('inf')
                 else:
                     weight = float('inf')
-                
+
                 distance = current_distance + weight
 
                 if distance < distances[neighbor]:
@@ -116,52 +125,55 @@ def dijkstra_con_reparto(G, s, t, tiendas_productos):
 
                     # Restar 20 productos a la capacidad de la tienda
                     if neighbor in tiendas_productos:
-                        productos_restantes = tiendas_productos[neighbor]
-                        if productos_restantes >= 10000:
-                            tiendas_productos[neighbor] -= 20
-                            productos_repartidos[neighbor] += 20
+                        tienda = tiendas_productos[neighbor]
+                        if tienda.cantidad_productos >= 10000:
+                            tienda.cantidad_productos -= 20
+                            productos_repartidos[tienda] += 20
                             total_productos_entregados += 20
                         else:
-                            productos_repartidos[neighbor] += productos_restantes
-                            total_productos_entregados += productos_restantes
-                            tiendas_productos[neighbor] = 0
+                            productos_repartidos[tienda] += tienda.cantidad_productos
+                            total_productos_entregados += tienda.cantidad_productos
+                            tienda.cantidad_productos = 0
 
     return [], float('inf'), productos_repartidos, total_productos_entregados
 
-# Define start and end nodes
-start_node = 6394939470  # Reemplazar con el ID de inicio real si se conoce
-end_node = random.choice(nodos_tiendas_ids)  # Reemplazar con el nodo de destino real
+# Ejecutar Dijkstra modificado para cada lista aleatoria de nodos
+for i in range(5):  # Cambiar 5 por la cantidad de listas aleatorias que quieras generar
+    random_nodos = random.sample(nodos, len(nodos))
+    random_cantidades_productos = random.sample(cantidades_productos, len(cantidades_productos))
 
-# Ejecutar Dijkstra modificado
-path, total_distance, productos_repartidos, total_productos_entregados = dijkstra_con_reparto(graph, start_node, end_node, tiendas_productos)
+    print(f"\n\nLista Aleatoria {i+1}:")
+    for nodo, cantidad in zip(random_nodos, random_cantidades_productos):
+        print(f"Tienda {nodo}: {cantidad} productos")
 
-# Mostrar resultados
-print(f"Recorrido más corto: {path}")
-print(f"Distancia total: {total_distance} metros")
-print("Productos repartidos por cada tienda:")
-for tienda, cantidad in productos_repartidos.items():
-    print(f"Tienda {tienda}: {cantidad} productos")
+    # Ejecutar Dijkstra para la lista aleatoria actual
+    start_node = 6394939470  # Nodo de inicio
+    end_node = random_nodos[-1]  # Nodo de destino
+    path, total_distance, productos_repartidos, total_productos_entregados = dijkstra_con_reparto(graph, start_node, end_node, tiendas_productos)
 
-print(f"Total de productos entregados: {total_productos_entregados}")
+    # Mostrar resultados
+    print(f"\nRecorrido más corto: {path}")
+    print(f"Distancia total: {total_distance} metros")
+    print("Productos repartidos por cada tienda:")
+    for tienda, cantidad in productos_repartidos.items():
+        print(f"{tienda.nombre}: {cantidad} productos")
+    print(f"Total de productos entregados: {total_productos_entregados}\n")
 
+    # Plotear el recorrido en el grafo
+    fig, ax = plt.subplots(figsize=(12, 12))
+    ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
 
-# Plotear el recorrido en el grafo
-fig, ax = plt.subplots(figsize=(12, 12))
-ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+    node_pos = {node: (data['x'], data['y']) for node, data in graph.nodes(data=True)}
+    edge_weights = nx.get_edge_attributes(graph, 'weight')
 
+    # Highlight the path
+    path_edges = list(zip(path, path[1:]))
+    ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
 
-node_pos = {node: (data['x'], data['y']) for node, data in graph.nodes(data=True)}
-edge_weights = nx.get_edge_attributes(graph, 'weight')
+    nc = ['green' if node == start_node else ('red' if node == end_node else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
 
+    nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
+    nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
-
-# Highlight the path
-path_edges = list(zip(path, path[1:]))
-ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
-
-nc = ['green' if node == start_node else ('red' if node == end_node else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
-
-nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
-nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
-
-plt.show()
+    plt.title(f"Lista Aleatoria {i+1}: Recorrido desde Tienda {start_node} hasta Tienda {end_node}")
+    plt.show()
