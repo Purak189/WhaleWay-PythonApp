@@ -20,7 +20,7 @@ graph = ox.graph_from_place(place_name, network_type="drive")
 nodes_gdf, edges_gdf = ox.graph_to_gdfs(graph)
 
 # Load additional nodes from the GeoJSON file
-geojson_file = 'WhaleWay-PythonApp/filtered_nodes.geojson'
+geojson_file = 'filtered_nodes.geojson'
 with open(geojson_file) as f:
     geojson_data = json.load(f)
 
@@ -36,7 +36,6 @@ def calculate_distance_geodesic(y1, x1, y2, x2):
     distance = geodesic((y1, x1), (y2, x2)).meters
     return int(round(distance))
 
-# Adding nodes and edges with weights to the graph
 for idx, row in gdf.iterrows():
     node_id = row['@id']
     y, x = row.geometry.y, row.geometry.x
@@ -45,20 +44,30 @@ for idx, row in gdf.iterrows():
     
     # Find nearest neighbors and add edges with weights
     point = np.array([np.radians(y), np.radians(x)])
-    dist, ind = tree.query([point], k=5)  # Adjust k as needed
+    dist, ind = tree.query([point], k=5)  # Ajusta k según sea necesario
     for i in ind[0]:
-        neighbor_id = nodes_gdf.iloc[i].name  # Si el índice del DataFrame es el identificador del nodo.
+        neighbor_id = nodes_gdf.iloc[i].name  # Asegúrate de que esto obtiene el ID correcto
         distance = int(round(great_circle((y, x), coords[i]).meters))
-        graph.add_edge(node_id, neighbor_id, weight=distance)
-        graph.add_edge(neighbor_id, node_id, weight=distance)  # If the graph is undirected
+        if distance > 0:  # Solo agrega la arista si la distancia es mayor que 0
+            # print(f"Adding edge from {node_id} to {neighbor_id} with distance {distance}")
+            graph.add_edge(node_id, neighbor_id, weight=distance)
+            graph.add_edge(neighbor_id, node_id, weight=distance)  # Si el grafo es no dirigido
 
+# Asegurarse de que todas las aristas tengan un peso asignado
 for u, v, data in graph.edges(data=True):
-    if 'weight' not in data:
-        # Calcula la distancia geodésica si no se ha asignado un peso
+    if 'weight' not in data or data['weight'] == 0:
         y1, x1 = graph.nodes[u]['y'], graph.nodes[u]['x']
         y2, x2 = graph.nodes[v]['y'], graph.nodes[v]['x']
         distance = calculate_distance_geodesic(y1, x1, y2, x2)
         data['weight'] = distance
+
+# print("Aristas en el grafo después de la verificación:", [(u, v, d['weight']) for u, v, d in graph.edges(data=True)])
+
+
+# Verificar pesos de aristas después de la asignación
+# print("Aristas en el grafo:", [(u, v, d['weight']) for u, v, d in graph.edges(data=True)])
+
+
 
 # Especifica el ID del nodo 'almacen_ElHoyo'
 almacen_ElHoyo_id = 6394939470  # Asegúrate de que este ID esté presente en tu grafo
@@ -77,6 +86,8 @@ nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, ax=ax)
 edge_weights = nx.get_edge_attributes(graph, 'weight')
 nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
+# plt.show()
+
 # Dijkstra algorithm
 def dijkstra(G, s, t):
     q = []
@@ -87,6 +98,7 @@ def dijkstra(G, s, t):
 
     while q:
         current_distance, current_node = heapq.heappop(q)
+        # print(f"Current node: {current_node}, Current distance: {current_distance}")
 
         if current_node == t:
             path = []
@@ -101,53 +113,80 @@ def dijkstra(G, s, t):
 
         for neighbor in G.neighbors(current_node):
             if G.has_edge(current_node, neighbor):
-                weight = G[current_node][neighbor].get('weight', float('inf'))
+                edge_data = G.get_edge_data(current_node, neighbor)
+                # Acceso modificado para manejar diccionarios anidados
+                if isinstance(edge_data, dict):
+                    if 0 in edge_data:
+                        weight = edge_data[0].get('weight', float('inf'))
+                    else:
+                        weight = float('inf')
+                else:
+                    weight = float('inf')
+                
+                # print(f"Neighbor: {neighbor}, Edge data: {edge_data}, Weight: {weight}")
                 distance = current_distance + weight
 
                 if distance < distances[neighbor]:
                     distances[neighbor] = distance
                     previous_nodes[neighbor] = current_node
                     heapq.heappush(q, (distance, neighbor))
+                    # print(f"Updated distance for node {neighbor}: {distance}")
 
     return [], float('inf')
 
 # Define start and end nodes
-start_node = list(graph.nodes())[0]  # Replace with actual start node id if known
-end_node = 4457301898  # Actualiza el nodo de destino
+start_node = 6394939470   # Replace with actual start node id if known
+end_node = 11230243674  # Actualiza el nodo de destino
+
+if graph.has_edge(start_node, end_node):
+    print("Los nodos están directamente conectados.")
+else:
+    print("Los nodos NO están directamente conectados.")
+
+# Asumiendo que 'graph' es una instancia de un grafo de NetworkX
+if nx.has_path(graph, start_node, end_node):
+    print("Existe un camino entre los nodos.")
+else:
+    print("No existe un camino entre los nodos.")
+
+print(f"Vecinos del nodo {start_node}: {list(graph.neighbors(start_node))}")
+print(f"Vecinos del nodo {end_node}: {list(graph.neighbors(end_node))}")
+
+# print("Aristas en el grafo:", list(graph.edges))
 
 # Find the shortest path using Dijkstra
 path, total_distance = dijkstra(graph, start_node, end_node)
 
-# Highlight the path
-path_edges = list(zip(path, path[1:]))
-ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
+# # Highlight the path
+# path_edges = list(zip(path, path[1:]))
+# ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
 
-# Plot the graph with the path highlighted
-fig, ax = plt.subplots(figsize=(12, 12))
-ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color=ec, show=False, close=False)
+# # Plot the graph with the path highlighted
+# fig, ax = plt.subplots(figsize=(12, 12))
+# ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color=ec, show=False, close=False)
 
-nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
-nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
+# nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
+# nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
 
-# Draw edge labels to show weights
-nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+# # Draw edge labels to show weights
+# nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
-plt.show()
+# plt.show()
 
-# Plot the path separately
-fig, ax = plt.subplots(figsize=(12, 12))
-ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+# # Plot the path separately
+# fig, ax = plt.subplots(figsize=(12, 12))
+# ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
 
-# Resaltar los nodos y bordes del camino
-nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
-ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
+# # Resaltar los nodos y bordes del camino
+# nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
+# ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
 
-nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax, width=[3 if (u, v) in path_edges or (v, u) in path_edges else 1 for u, v in graph.edges()])
+# nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax, width=[3 if (u, v) in path_edges or (v, u) in path_edges else 1 for u, v in graph.edges()])
 
-# Draw edge labels to show weights
-nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+# # Draw edge labels to show weights
+# nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
-plt.show()
+# plt.show()
 
 print(f"Shortest path: {path}")
 print(f"Total distance: {total_distance} meters")

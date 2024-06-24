@@ -4,7 +4,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/3792309447",
+        "@id": 3792309447,
         "shop": "convenience"
       },
       "geometry": {
@@ -14,12 +14,12 @@
           -11.9905874
         ]
       },
-      "id": "node/3792309447"
+      "id": 3792309447
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/4101276989",
+        "@id": 4101276989,
         "addr:city": "Independencia",
         "addr:street": "Avenida Chinchaysuyo",
         "name": "In One",
@@ -33,12 +33,12 @@
           -11.978518
         ]
       },
-      "id": "node/4101276989"
+      "id": 4101276989
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/4439656987",
+        "@id": 4439656987,
         "addr:city": "Independencia",
         "addr:street": "Las Violetas",
         "name": "Tambo",
@@ -51,12 +51,12 @@
           -11.9983353
         ]
       },
-      "id": "node/4439656987"
+      "id": 4439656987
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/4457301898",
+        "@id": 4457301898,
         "addr:street": "16 De Marzo",
         "name": "Economarket",
         "shop": "convenience",
@@ -69,12 +69,12 @@
           -12.0066069
         ]
       },
-      "id": "node/4457301898"
+      "id": 4457301898
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/4534744690",
+        "@id": 4534744690,
         "addr:street": "Cesar Vallejo",
         "name": "Tienda de Don Segundo",
         "name:es": "Tienda de Don Segundo",
@@ -88,12 +88,12 @@
           -11.9915958
         ]
       },
-      "id": "node/4534744690"
+      "id": 4534744690
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/5605915215",
+        "@id": 5605915215,
         "addr:city": "Independencia",
         "addr:street": "Calle Gerardo Unger",
         "name": "Mass",
@@ -106,12 +106,12 @@
           -11.9970322
         ]
       },
-      "id": "node/5605915215"
+      "id": 5605915215
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/5862352768",
+        "@id": 5862352768,
         "addr:city": "Independencia",
         "addr:street": "Boulevard",
         "name": "Quality Products",
@@ -125,12 +125,12 @@
           -11.9935007
         ]
       },
-      "id": "node/5862352768"
+      "id": 5862352768
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/5866511098",
+        "@id": 5866511098,
         "addr:city": "Independencia",
         "addr:street": "Pasillo Este",
         "name": "Listo",
@@ -146,12 +146,12 @@
           -12.0057331
         ]
       },
-      "id": "node/5866511098"
+      "id": 5866511098
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/6069709186",
+        "@id": 6069709186,
         "name": "Bodega Panchita",
         "shop": "convenience"
       },
@@ -162,12 +162,12 @@
           -12.0107073
         ]
       },
-      "id": "node/6069709186"
+      "id": 6069709186
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/9366500461",
+        "@id": 9366500461,
         "name": "Tambo",
         "shop": "convenience"
       },
@@ -178,12 +178,12 @@
           -11.9827371
         ]
       },
-      "id": "node/9366500461"
+      "id": 9366500461
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10012558821",
+        "@id": 10012558821,
         "shop": "convenience"
       },
       "geometry": {
@@ -193,12 +193,12 @@
           -12.0069984
         ]
       },
-      "id": "node/10012558821"
+      "id": 10012558821
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10012558973",
+        "@id": 10012558973,
         "addr:housenumber": "188",
         "addr:street": "16 de Marzo",
         "name": "Bamb\u00famarket",
@@ -213,12 +213,12 @@
           -12.0066459
         ]
       },
-      "id": "node/10012558973"
+      "id": 10012558973
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10012559008",
+        "@id": 10012559008,
         "addr:street": "16 de Marzo",
         "name": "Bodega Mary",
         "shop": "convenience"
@@ -230,12 +230,12 @@
           -12.0065545
         ]
       },
-      "id": "node/10012559008"
+      "id": 10012559008
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10014394568",
+        "@id": 10014394568,
         "shop": "convenience"
       },
       "geometry": {
@@ -245,12 +245,12 @@
           -12.0061896
         ]
       },
-      "id": "node/10014394568"
+      "id": 10014394568
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10030933596",
+        "@id": 10030933596,
         "shop": "convenience"
       },
       "geometry": {
@@ -260,12 +260,12 @@
           -12.0074486
         ]
       },
-      "id": "node/10030933596"
+      "id": 10030933596
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10040745737",
+        "@id": 10040745737,
         "shop": "convenience"
       },
       "geometry": {
@@ -275,12 +275,12 @@
           -12.0074435
         ]
       },
-      "id": "node/10040745737"
+      "id": 10040745737
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10052864541",
+        "@id": 10052864541,
         "shop": "convenience"
       },
       "geometry": {
@@ -290,12 +290,12 @@
           -12.0075865
         ]
       },
-      "id": "node/10052864541"
+      "id": 10052864541
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/10068018748",
+        "@id": 10068018748,
         "shop": "convenience"
       },
       "geometry": {
@@ -305,12 +305,12 @@
           -12.0036119
         ]
       },
-      "id": "node/10068018748"
+      "id": 10068018748
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/11211846116",
+        "@id": 11211846116,
         "addr:street": "Calle Gerardo Unger",
         "name": "Listo!",
         "shop": "convenience"
@@ -322,12 +322,12 @@
           -11.9887254
         ]
       },
-      "id": "node/11211846116"
+      "id": 11211846116
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/11230243642",
+        "@id": 11230243642,
         "name": "Bodeg\u00f3n21",
         "shop": "convenience"
       },
@@ -338,12 +338,12 @@
           -11.9902969
         ]
       },
-      "id": "node/11230243642"
+      "id": 11230243642
     },
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/11230243674",
+        "@id": 11230243674,
         "brand": "Oxxo",
         "brand:wikidata": "Q1342538",
         "level": "1",
@@ -357,7 +357,7 @@
           -11.9903154
         ]
       },
-      "id": "node/11230243674"
+      "id": 11230243674
     }
   ]
 }
