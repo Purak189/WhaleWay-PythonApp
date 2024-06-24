@@ -21,26 +21,21 @@ class Tienda:
         self.nombre = nombre
         self.cantidad_productos = cantidad_productos
 
-# Load the road network graph for a specific area
 place_name = "Independencia, Lima, Perú"
 graph = ox.graph_from_place(place_name, network_type="drive")
 
-# Convert the graph to GeoDataFrame
 nodes_gdf, edges_gdf = ox.graph_to_gdfs(graph)
 
-# Load additional nodes from the GeoJSON file
 geojson_file = 'filtered_nodes.geojson'
 with open(geojson_file) as f:
     geojson_data = json.load(f)
 
-# Convert GeoJSON features to GeoDataFrame
 gdf = gpd.GeoDataFrame.from_features(geojson_data['features'])
 
-# Prepare BallTree for efficient distance computation
 coords = np.array([(y, x) for x, y in nodes_gdf[['x', 'y']].values])
 tree = BallTree(np.radians(coords), metric='haversine')
 
-# Función para calcular la distancia entre dos puntos usando geodesic
+# Función para calcular la distancia entre dos puntos
 def calculate_distance_geodesic(y1, x1, y2, x2):
     distance = geodesic((y1, x1), (y2, x2)).meters
     return int(round(distance))
@@ -51,9 +46,8 @@ for idx, row in gdf.iterrows():
     shop_type = row['name'] if pd.notna(row['name']) else 'N/A'
     graph.add_node(node_id, y=y, x=x, shop=shop_type, pos=(x, y))
 
-    # Find nearest neighbors and add edges with weights
     point = np.array([np.radians(y), np.radians(x)])
-    dist, ind = tree.query([point], k=5)  # Ajusta k según sea necesario
+    dist, ind = tree.query([point], k=5)  
     for i in ind[0]:
         neighbor_id = nodes_gdf.iloc[i].name  # Asegúrate de que esto obtenga el ID correcto
         distance = int(round(great_circle((y, x), coords[i]).meters))
@@ -133,9 +127,9 @@ def main(args):
     nodos = [int(args[i]) for i in range(1, len(args), 2)]
     cantidades_productos = [int(args[i+1]) for i in range(1, len(args), 2)]
 
-    # Crear una lista de objetos Tienda
+   
     tiendas = []
-    tiendas_productos = {}  # Diccionario que mapea ID de tienda a objeto Tienda
+    tiendas_productos = {}  
     for id, cantidad in zip(nodos, cantidades_productos):
         nombre = f"Tienda {id}"
         tienda = Tienda(id, nombre, cantidad)
@@ -149,7 +143,6 @@ def main(args):
     all_total_productos_entregados = []
     almacen = 6394939470  # Nodo de inicio (almacén)
 
-    # Ejecutar Dijkstra 
     nodos = [almacen] + nodos + [almacen]  # Nodo de inicio al final
 
     start_node = nodos[0]  # Nodo de inicio
