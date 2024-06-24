@@ -20,7 +20,7 @@ graph = ox.graph_from_place(place_name, network_type="drive")
 nodes_gdf, edges_gdf = ox.graph_to_gdfs(graph)
 
 # Load additional nodes from the GeoJSON file
-geojson_file = 'filtered_nodes.geojson'
+geojson_file = 'WhaleWay-PythonApp/filtered_nodes.geojson'
 with open(geojson_file) as f:
     geojson_data = json.load(f)
 
@@ -157,36 +157,36 @@ print(f"Vecinos del nodo {end_node}: {list(graph.neighbors(end_node))}")
 # Find the shortest path using Dijkstra
 path, total_distance = dijkstra(graph, start_node, end_node)
 
-# # Highlight the path
-# path_edges = list(zip(path, path[1:]))
-# ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
+ # Highlight the path
+path_edges = list(zip(path, path[1:]))
+ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
 
-# # Plot the graph with the path highlighted
-# fig, ax = plt.subplots(figsize=(12, 12))
-# ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color=ec, show=False, close=False)
+# Plot the graph with the path highlighted
+fig, ax = plt.subplots(figsize=(12, 12))
+ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color=ec, show=False, close=False)
 
-# nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
-# nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
+nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
+nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
 
 # # Draw edge labels to show weights
-# nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
-# plt.show()
+plt.show()
 
 # # Plot the path separately
-# fig, ax = plt.subplots(figsize=(12, 12))
-# ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+fig, ax = plt.subplots(figsize=(12, 12))
+ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
 
 # # Resaltar los nodos y bordes del camino
-# nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
-# ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
+nc = ['green' if node == almacen_ElHoyo_id else ('red' if node in highlight_nodes else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
+ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
 
-# nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax, width=[3 if (u, v) in path_edges or (v, u) in path_edges else 1 for u, v in graph.edges()])
+nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax, width=[3 if (u, v) in path_edges or (v, u) in path_edges else 1 for u, v in graph.edges()])
 
-# # Draw edge labels to show weights
-# nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+# Draw edge labels to show weights
+nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
-# plt.show()
+plt.show()
 
 print(f"Shortest path: {path}")
 print(f"Total distance: {total_distance} meters")
