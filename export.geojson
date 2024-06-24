@@ -1,0 +1,1072 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-06-22T00:54:17Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1401191082",
+        "attribute_source_date": "13-08-11",
+        "attribute_source_type": "field_mission",
+        "geometry_source_date": "13-08-11",
+        "geometry_source_type": "gps",
+        "name": "Miguel. Cormado",
+        "operational_status": "open",
+        "power_source": "electricity_network",
+        "shop": "convenience",
+        "source": "cosmha"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2679742,
+          18.3528523
+        ]
+      },
+      "id": "node/1401191082"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2867979020",
+        "name": "estanquillo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.4095674,
+          24.772555
+        ]
+      },
+      "id": "node/2867979020"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3786619585",
+        "brand": "Oxxo",
+        "brand:wikidata": "Q1342538",
+        "brand:wikipedia": "es:Oxxo",
+        "name": "Oxxo",
+        "shop": "convenience",
+        "website": "https://www.oxxo.com/tiendas?cr=50FCO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.3134612,
+          25.6609277
+        ]
+      },
+      "id": "node/3786619585"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3792309447",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0526951,
+          -11.9905874
+        ]
+      },
+      "id": "node/3792309447"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4101276989",
+        "addr:city": "Independencia",
+        "addr:street": "Avenida Chinchaysuyo",
+        "name": "In One",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0523301,
+          -11.978518
+        ]
+      },
+      "id": "node/4101276989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4143757768",
+        "name": "Market Union",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5347656,
+          -9.5013442
+        ]
+      },
+      "id": "node/4143757768"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4322376883",
+        "addr:city": "Posadas",
+        "addr:country": "AR",
+        "addr:housenumber": "7030",
+        "addr:postcode": "3300",
+        "addr:street": "Avenida Cocomarola",
+        "name": "El Sol",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.9122475,
+          -27.4116644
+        ]
+      },
+      "id": "node/4322376883"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4379220689",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5272471,
+          -9.5200696
+        ]
+      },
+      "id": "node/4379220689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4425633184",
+        "addr:street": "Avenida Fermín Vivaceta",
+        "name": "Mini Market Botilleria Pali",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6717831,
+          -33.4009484
+        ]
+      },
+      "id": "node/4425633184"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4425655213",
+        "addr:street": "Avenida Fermín Vivaceta",
+        "name": "Abarrotes El Oasis",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6648586,
+          -33.4146895
+        ]
+      },
+      "id": "node/4425655213"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4425658852",
+        "addr:street": "Avenida Fermin Vivaceta",
+        "name": "Ven Market",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6632308,
+          -33.4212967
+        ]
+      },
+      "id": "node/4425658852"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4434527484",
+        "name": "Almacén Imagen",
+        "shop": "convenience",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6658306,
+          -33.4098453
+        ]
+      },
+      "id": "node/4434527484"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4434595822",
+        "name": "Provisiones Fenix",
+        "shop": "convenience",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6627348,
+          -33.4092886
+        ]
+      },
+      "id": "node/4434595822"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4435067092",
+        "name": "El Frente",
+        "shop": "convenience",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6592341,
+          -33.4116044
+        ]
+      },
+      "id": "node/4435067092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4439656987",
+        "addr:city": "Independencia",
+        "addr:street": "Las Violetas",
+        "name": "Tambo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0549165,
+          -11.9983353
+        ]
+      },
+      "id": "node/4439656987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4444742829",
+        "addr:street": "Rivera",
+        "name": "El Trébol",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6563648,
+          -33.4257969
+        ]
+      },
+      "id": "node/4444742829"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4446190496",
+        "addr:street": "Barnechea",
+        "name": "Abarrotes Lucas",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6579711,
+          -33.4279259
+        ]
+      },
+      "id": "node/4446190496"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4446319908",
+        "addr:street": "Gamero",
+        "name": "Mini Market Camilita",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6588534,
+          -33.4211005
+        ]
+      },
+      "id": "node/4446319908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4446363925",
+        "addr:street": "Colón",
+        "name": "Mini Market Maximercado",
+        "shop": "convenience",
+        "source": "Reconocimiento cortográfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6601368,
+          -33.4227703
+        ]
+      },
+      "id": "node/4446363925"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4457301898",
+        "addr:street": "16 De Marzo",
+        "name": "Economarket",
+        "shop": "convenience",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0522862,
+          -12.0066069
+        ]
+      },
+      "id": "node/4457301898"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4510438153",
+        "addr:city": "Posadas",
+        "addr:postcode": "3300",
+        "addr:street": "Avenida Cocomarola",
+        "name": "Tuti",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.9122199,
+          -27.411452
+        ]
+      },
+      "id": "node/4510438153"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4534744690",
+        "addr:street": "Cesar Vallejo",
+        "name": "Tienda de Don Segundo",
+        "name:es": "Tienda de Don Segundo",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0519623,
+          -11.9915958
+        ]
+      },
+      "id": "node/4534744690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5013108322",
+        "name": "Trendy",
+        "name:es": "Trendy",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6633891,
+          -33.4123295
+        ]
+      },
+      "id": "node/5013108322"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5013108422",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6546632,
+          -33.4174153
+        ]
+      },
+      "id": "node/5013108422"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5013108523",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6684697,
+          -33.4189487
+        ]
+      },
+      "id": "node/5013108523"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5013108524",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6644478,
+          -33.4157119
+        ]
+      },
+      "id": "node/5013108524"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5312051525",
+        "name": "Bodega internet",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5453884,
+          -9.524938
+        ]
+      },
+      "id": "node/5312051525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5312118222",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5419793,
+          -9.5219222
+        ]
+      },
+      "id": "node/5312118222"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5347976422",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5374883,
+          -9.4700594
+        ]
+      },
+      "id": "node/5347976422"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5347976521",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5382257,
+          -9.4713224
+        ]
+      },
+      "id": "node/5347976521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5368108726",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5404181,
+          -9.5265664
+        ]
+      },
+      "id": "node/5368108726"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5384030322",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5378872,
+          -9.4899658
+        ]
+      },
+      "id": "node/5384030322"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5412779421",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5371655,
+          -9.5259458
+        ]
+      },
+      "id": "node/5412779421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5605915215",
+        "addr:city": "Independencia",
+        "addr:street": "Calle Gerardo Unger",
+        "name": "Mass",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.055661,
+          -11.9970322
+        ]
+      },
+      "id": "node/5605915215"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5643876821",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.54064,
+          -9.5256795
+        ]
+      },
+      "id": "node/5643876821"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5862352768",
+        "addr:city": "Independencia",
+        "addr:street": "Boulevard",
+        "name": "Quality Products",
+        "operator": "Quality Store",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0600296,
+          -11.9935007
+        ]
+      },
+      "id": "node/5862352768"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5866511098",
+        "addr:city": "Independencia",
+        "addr:street": "Pasillo Este",
+        "name": "Listo",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "Primax",
+        "shop": "convenience",
+        "website": "https://www.primax.com.pe/tiendas-listo/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.056945,
+          -12.0057331
+        ]
+      },
+      "id": "node/5866511098"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6032281785",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5584658,
+          -9.5348056
+        ]
+      },
+      "id": "node/6032281785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6069709186",
+        "name": "Bodega Panchita",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0517636,
+          -12.0107073
+        ]
+      },
+      "id": "node/6069709186"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6129098539",
+        "addr:city": "Posadas",
+        "addr:postcode": "3300",
+        "addr:street": "Laprida",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.9146734,
+          -27.4136963
+        ]
+      },
+      "id": "node/6129098539"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6129098540",
+        "addr:city": "Posadas",
+        "addr:postcode": "3300",
+        "addr:street": "Laprida",
+        "name": "San Cayetano",
+        "opening_hours": "PH,Mo-Su 08:00-21:00",
+        "payment:debit_cards": "yes",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.9150387,
+          -27.4138802
+        ]
+      },
+      "id": "node/6129098540"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6414434585",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5269549,
+          -9.514697
+        ]
+      },
+      "id": "node/6414434585"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6414450285",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.526069,
+          -9.5136685
+        ]
+      },
+      "id": "node/6414450285"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7076568389",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5073631,
+          -9.4836966
+        ]
+      },
+      "id": "node/7076568389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7209423985",
+        "name": "Plaza Bella",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5322969,
+          -9.5109555
+        ]
+      },
+      "id": "node/7209423985"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8570487718",
+        "brand": "Oxxo",
+        "brand:wikidata": "Q1342538",
+        "name": "Oxxo",
+        "shop": "convenience",
+        "website": "https://www.oxxo.com/tiendas?cr=50ZSD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.328045,
+          25.6638932
+        ]
+      },
+      "id": "node/8570487718"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9080881896",
+        "addr:housenumber": "1121",
+        "addr:street": "Profesor Alberto Zañartu",
+        "brand": "Oxxo",
+        "brand:wikidata": "Q1342538",
+        "brand:wikipedia": "es:Oxxo",
+        "name": "Oxxo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.6555244,
+          -33.417521
+        ]
+      },
+      "id": "node/9080881896"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9307362472",
+        "name": "Bodega Tumpa",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5302064,
+          -9.5087833
+        ]
+      },
+      "id": "node/9307362472"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9366500461",
+        "name": "Tambo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.059063,
+          -11.9827371
+        ]
+      },
+      "id": "node/9366500461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9960240168",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.4420758,
+          -9.5056128
+        ]
+      },
+      "id": "node/9960240168"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9962388578",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.4773884,
+          -9.5164177
+        ]
+      },
+      "id": "node/9962388578"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9962388579",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.4771456,
+          -9.5161347
+        ]
+      },
+      "id": "node/9962388579"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10012558821",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0531457,
+          -12.0069984
+        ]
+      },
+      "id": "node/10012558821"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10012558973",
+        "addr:housenumber": "188",
+        "addr:street": "16 de Marzo",
+        "name": "Bambúmarket",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.052531,
+          -12.0066459
+        ]
+      },
+      "id": "node/10012558973"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10012559008",
+        "addr:street": "16 de Marzo",
+        "name": "Bodega Mary",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0536093,
+          -12.0065545
+        ]
+      },
+      "id": "node/10012559008"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10014394568",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0515816,
+          -12.0061896
+        ]
+      },
+      "id": "node/10014394568"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10030933596",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0499368,
+          -12.0074486
+        ]
+      },
+      "id": "node/10030933596"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10040745737",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0498073,
+          -12.0074435
+        ]
+      },
+      "id": "node/10040745737"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10052864541",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0495529,
+          -12.0075865
+        ]
+      },
+      "id": "node/10052864541"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10068018748",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0505822,
+          -12.0036119
+        ]
+      },
+      "id": "node/10068018748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11211846116",
+        "addr:street": "Calle Gerardo Unger",
+        "name": "Listo!",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0573553,
+          -11.9887254
+        ]
+      },
+      "id": "node/11211846116"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11230243642",
+        "name": "Bodegón21",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0619633,
+          -11.9902969
+        ]
+      },
+      "id": "node/11230243642"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11230243674",
+        "brand": "Oxxo",
+        "brand:wikidata": "Q1342538",
+        "level": "1",
+        "name": "Oxxo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0628996,
+          -11.9903154
+        ]
+      },
+      "id": "node/11230243674"
+    }
+  ]
+}

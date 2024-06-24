@@ -1,0 +1,363 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 3792309447,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0526951,
+          -11.9905874
+        ]
+      },
+      "id": 3792309447
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 4101276989,
+        "addr:city": "Independencia",
+        "addr:street": "Avenida Chinchaysuyo",
+        "name": "In One",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0523301,
+          -11.978518
+        ]
+      },
+      "id": 4101276989
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 4439656987,
+        "addr:city": "Independencia",
+        "addr:street": "Las Violetas",
+        "name": "Tambo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0549165,
+          -11.9983353
+        ]
+      },
+      "id": 4439656987
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 4457301898,
+        "addr:street": "16 De Marzo",
+        "name": "Economarket",
+        "shop": "convenience",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0522862,
+          -12.0066069
+        ]
+      },
+      "id": 4457301898
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 4534744690,
+        "addr:street": "Cesar Vallejo",
+        "name": "Tienda de Don Segundo",
+        "name:es": "Tienda de Don Segundo",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0519623,
+          -11.9915958
+        ]
+      },
+      "id": 4534744690
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 5605915215,
+        "addr:city": "Independencia",
+        "addr:street": "Calle Gerardo Unger",
+        "name": "Mass",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.055661,
+          -11.9970322
+        ]
+      },
+      "id": 5605915215
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 5862352768,
+        "addr:city": "Independencia",
+        "addr:street": "Boulevard",
+        "name": "Quality Products",
+        "operator": "Quality Store",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0600296,
+          -11.9935007
+        ]
+      },
+      "id": 5862352768
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 5866511098,
+        "addr:city": "Independencia",
+        "addr:street": "Pasillo Este",
+        "name": "Listo",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "Primax",
+        "shop": "convenience",
+        "website": "https://www.primax.com.pe/tiendas-listo/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.056945,
+          -12.0057331
+        ]
+      },
+      "id": 5866511098
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 6069709186,
+        "name": "Bodega Panchita",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0517636,
+          -12.0107073
+        ]
+      },
+      "id": 6069709186
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 9366500461,
+        "name": "Tambo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.059063,
+          -11.9827371
+        ]
+      },
+      "id": 9366500461
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10012558821,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0531457,
+          -12.0069984
+        ]
+      },
+      "id": 10012558821
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10012558973,
+        "addr:housenumber": "188",
+        "addr:street": "16 de Marzo",
+        "name": "Bamb\u00famarket",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.052531,
+          -12.0066459
+        ]
+      },
+      "id": 10012558973
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10012559008,
+        "addr:street": "16 de Marzo",
+        "name": "Bodega Mary",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0536093,
+          -12.0065545
+        ]
+      },
+      "id": 10012559008
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10014394568,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0515816,
+          -12.0061896
+        ]
+      },
+      "id": 10014394568
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10030933596,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0499368,
+          -12.0074486
+        ]
+      },
+      "id": 10030933596
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10040745737,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0498073,
+          -12.0074435
+        ]
+      },
+      "id": 10040745737
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10052864541,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0495529,
+          -12.0075865
+        ]
+      },
+      "id": 10052864541
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 10068018748,
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0505822,
+          -12.0036119
+        ]
+      },
+      "id": 10068018748
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 11211846116,
+        "addr:street": "Calle Gerardo Unger",
+        "name": "Listo!",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0573553,
+          -11.9887254
+        ]
+      },
+      "id": 11211846116
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 11230243642,
+        "name": "Bodeg\u00f3n21",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0619633,
+          -11.9902969
+        ]
+      },
+      "id": 11230243642
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": 11230243674,
+        "brand": "Oxxo",
+        "brand:wikidata": "Q1342538",
+        "level": "1",
+        "name": "Oxxo",
+        "shop": "convenience"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0628996,
+          -11.9903154
+        ]
+      },
+      "id": 11230243674
+    }
+  ]
+}
