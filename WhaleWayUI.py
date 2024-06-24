@@ -69,22 +69,20 @@ root = tk.Tk()
 root.title("WhaleWay")
 root.geometry("640x540")
 
-# Personalizar colores y estilos
-root.configure(bg="#E0F7FA")  # Fondo de la app
+# Personalizacion de colores y estilos
+root.configure(bg="#E0F7FA")
 style = ttk.Style()
 style.configure("TButton", background="#0288D1", foreground="#FFFFFF", font=("Arial", 12))
 style.configure("Treeview", font=("Arial", 12), rowheight=25)
 style.configure("Treeview.Heading", font=("Arial", 12, "bold"))
 
-# Título de la aplicación
+# Header de la aplicación
 tk.Label(root, text="WhaleWay", font=("Arial", 24), bg="#E0F7FA").grid(row=0, column=1, pady=10)
 
-# Cargar y mostrar la imagen del logo
-logo = Image.open("logo.png")  # Reemplaza con la ruta a tu imagen
+logo = Image.open("logo.png")
 logo = logo.resize((100, 100), Image.LANCZOS)
 logo = ImageTk.PhotoImage(logo)
 tk.Label(root, image=logo, bg="#E0F7FA").grid(row=0, column=0, padx=10, pady=10)
-
 
 # Botón para agregar pedido
 tk.Button(root, text="Agregar pedido", command=abrir_ventana_agregar, bg="#0288D1", fg="#FFFFFF", font=("Arial", 12)).grid(row=1, column=0, columnspan=2, pady=10)
