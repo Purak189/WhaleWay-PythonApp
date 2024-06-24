@@ -16,6 +16,22 @@ WhaleWay es una aplicación de escritorio para la optimización de rutas de entr
 
 https://github.com/Purak189/WhaleWay-PythonApp
 
+## Configuración
+- Asegúrate de tener los datos de entrada correctamente configurados en los archivos correspondientes.
+- Verifica que las rutas a las imágenes y archivos de datos en el código sean correctas y accesibles.
+
+## Uso
+1. Ejecuta la interfaz gráfica principal ejecutando `python WhaleWayUI.py`.
+2. Interactúa con la interfaz para agregar pedidos y visualizar los recorridos optimizados.
+
+## Estado del Proyecto
+Versión 1.0 - Estable y listo para su uso.
+
+## Integrantes
+- Jair Velasquez
+- Omar Rivera
+- Gabriel BraithuaiteS
+
 ## Bibliotecas Utilizadas
 
 - **tkinter**: Biblioteca estándar de Python para crear interfaces gráficas de usuario.
