@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from PIL import Image, ImageTk
+import subprocess
 
 # Leer el archivo de tiendas y sus nodos
 def leer_tiendas(archivo):
@@ -46,6 +47,23 @@ def actualizar_lista_pedidos():
     for i, (tienda, cantidad) in enumerate(pedidos, 1):
         tree.insert("", "end", text=str(i), values=(tienda, f"{cantidad} productos"))
 
+# Función para mostrar el recorrido
+def mostrar_recorrido():
+    if not pedidos:
+        messagebox.showwarning("Sin pedidos", "Agregue al menos un pedido antes de mostrar el recorrido.")
+        return
+    
+    # Crear una lista de argumentos para pasar al script WhaleWayMapping.py
+    args = ["python", "WhaleWayMapping.py"]
+    for tienda, cantidad in pedidos:
+        args.extend([str(tiendas[tienda]), str(cantidad)])
+
+    try:
+        subprocess.run(args, check=True)
+    except subprocess.CalledProcessError as e:
+        messagebox.showerror("Error", f"Error al ejecutar WhaleWayMapping.py: {e}")
+
+
 # Inicializar la ventana principal
 root = tk.Tk()
 root.title("WhaleWay")
@@ -79,7 +97,7 @@ tree.heading("Pedido", text="Pedido")
 tree.grid(row=2, column=0, columnspan=2, padx=20, pady=10)
 
 # Botón para mostrar recorrido
-tk.Button(root, text="Mostrar recorrido", command=lambda: print("Mostrando recorrido..."), bg="#0288D1", fg="#FFFFFF", font=("Arial", 12)).grid(row=3, column=0, columnspan=2, pady=10)
+tk.Button(root, text="Mostrar recorrido", command=mostrar_recorrido, bg="#0288D1", fg="#FFFFFF", font=("Arial", 12)).grid(row=3, column=0, columnspan=2, pady=10)
 
 # Variables para los widgets
 tienda_var = tk.StringVar()
