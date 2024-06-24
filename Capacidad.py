@@ -28,7 +28,7 @@ graph = ox.graph_from_place(place_name, network_type="drive")
 nodes_gdf, edges_gdf = ox.graph_to_gdfs(graph)
 
 # Load additional nodes from the GeoJSON file
-geojson_file = 'WhaleWay-PythonApp/filtered_nodes.geojson'
+geojson_file = 'filtered_nodes.geojson'
 with open(geojson_file) as f:
     geojson_data = json.load(f)
 
@@ -67,19 +67,6 @@ for u, v, data in graph.edges(data=True):
         y2, x2 = graph.nodes[v]['y'], graph.nodes[v]['x']
         distance = calculate_distance_geodesic(y1, x1, y2, x2)
         data['weight'] = distance
-
-# Definir los nodos y cantidades de productos
-nodos = [3792309447, 4439656987, 4457301898, 4534744690, 5605915215, 5862352768]
-cantidades_productos = [30, 40, 40, 40, 90, 120]
-
-# Crear una lista de objetos Tienda
-tiendas = []
-tiendas_productos = {}  # Diccionario que mapea ID de tienda a objeto Tienda
-for id, cantidad in zip(nodos, cantidades_productos):
-    nombre = f"Tienda {id}"
-    tienda = Tienda(id, nombre, cantidad)
-    tiendas.append(tienda)
-    tiendas_productos[id] = tienda
 
 # Modificar la función dijkstra para incluir la repartición de productos
 def dijkstra_con_reparto(G, s, t, tiendas_productos):
@@ -137,43 +124,88 @@ def dijkstra_con_reparto(G, s, t, tiendas_productos):
 
     return [], float('inf'), productos_repartidos, total_productos_entregados
 
-# Ejecutar Dijkstra modificado para cada lista aleatoria de nodos
-for i in range(5):  # Cambiar 5 por la cantidad de listas aleatorias que quieras generar
-    random_nodos = random.sample(nodos, len(nodos))
-    random_cantidades_productos = random.sample(cantidades_productos, len(cantidades_productos))
+# Definir los nodos y cantidades de productos
+nodos = [3792309447, 5866511098, 10014394568]
+cantidades_productos = [30, 40, 60]
 
-    print(f"\n\nLista Aleatoria {i+1}:")
-    for nodo, cantidad in zip(random_nodos, random_cantidades_productos):
-        print(f"Tienda {nodo}: {cantidad} productos")
+# Crear una lista de objetos Tienda
+tiendas = []
+tiendas_productos = {}  # Diccionario que mapea ID de tienda a objeto Tienda
+for id, cantidad in zip(nodos, cantidades_productos):
+    nombre = f"Tienda {id}"
+    tienda = Tienda(id, nombre, cantidad)
+    tiendas.append(tienda)
+    tiendas_productos[id] = tienda
+    
+# Lista para almacenar todos los recorridos
+all_paths = []
+all_total_distances = []
+all_productos_repartidos = []
+all_total_productos_entregados = []
+almacen = 6394939470  # Nodo de inicio (almacén)
 
-    # Ejecutar Dijkstra para la lista aleatoria actual
-    start_node = 6394939470  # Nodo de inicio
-    end_node = random_nodos[-1]  # Nodo de destino
-    path, total_distance, productos_repartidos, total_productos_entregados = dijkstra_con_reparto(graph, start_node, end_node, tiendas_productos)
+# Ejecutar Dijkstra 
+nodos = [almacen] + nodos + [almacen]  # Nodo de inicio al final
+# Concatenar todas las tiendas en el orden de la lista aleatoria
 
-    # Mostrar resultados
-    print(f"\nRecorrido más corto: {path}")
-    print(f"Distancia total: {total_distance} metros")
-    print("Productos repartidos por cada tienda:")
-    for tienda, cantidad in productos_repartidos.items():
-        print(f"{tienda.nombre}: {cantidad} productos")
-    print(f"Total de productos entregados: {total_productos_entregados}\n")
+start_node = nodos[0]  # Nodo de inicio
+end_node = nodos[-1]  # Nodo de destino
+total_distance = 0
+productos_repartidos = {tienda: 0 for tienda in tiendas_productos.values()}
+total_productos_entregados = 0
+paths = []
 
-    # Plotear el recorrido en el grafo
-    fig, ax = plt.subplots(figsize=(12, 12))
-    ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+print(f"Nodos de inicio y fin: {start_node} -> {end_node}\n")
+print(f"\n\nEjecutando Dijkstra para la lista aleatoria {i + 1}:")
 
-    node_pos = {node: (data['x'], data['y']) for node, data in graph.nodes(data=True)}
-    edge_weights = nx.get_edge_attributes(graph, 'weight')
+for j in range(len(nodos)-1):
+    path, distance, productos, entregados = dijkstra_con_reparto(graph, nodos[j], nodos[j+1], tiendas_productos)
+    paths.extend(path)  # Extender el camino actual al final de la lista paths
+    total_distance += distance
+    for tienda in productos:
+        productos_repartidos[tienda] += productos[tienda]
+    total_productos_entregados += entregados
 
-    # Highlight the path
-    path_edges = list(zip(path, path[1:]))
-    ec = ['red' if (u, v) in path_edges or (v, u) in path_edges else 'gray' for u, v in graph.edges()]
+# Agregar el nodo de inicio al inicio de paths (almacén)
+paths.insert(0, start_node)
 
-    nc = ['green' if node == start_node else ('red' if node == end_node else ('yellow' if node in path else 'blue')) for node in graph.nodes()]
+# Almacenar los resultados
+all_paths.append(paths)
+all_total_distances.append(total_distance)
+all_productos_repartidos.append(productos_repartidos)
+all_total_productos_entregados.append(total_productos_entregados)
 
-    nx.draw(graph, pos=node_pos, node_color=nc, node_size=20, edge_color=ec, ax=ax)
-    nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+print(f"Recorrido finalizado. Distancia total recorrida: {total_distance} metros")
+print("Productos repartidos por cada tienda:")
+for tienda, cantidad in productos_repartidos.items():
+    print(f"{tienda.nombre}: {cantidad} productos")
+print(f"Total de productos entregados en este recorrido: {total_productos_entregados}\n\n")
 
-    plt.title(f"Lista Aleatoria {i+1}: Recorrido desde Tienda {start_node} hasta Tienda {end_node}")
-    plt.show()
+# Mostrar todos los recorridos en el grafo
+fig, ax = plt.subplots(figsize=(12, 12))
+ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+
+node_pos = {node: (data['x'], data['y']) for node, data in graph.nodes(data=True)}
+edge_weights = nx.get_edge_attributes(graph, 'weight')
+
+# Colorear los nodos según el tipo
+node_colors = []
+for node in graph.nodes():
+    if node == 6394939470:  # Almacén
+        node_colors.append('green')
+    elif node in nodos:  # Tiendas
+        node_colors.append('red')
+    else:  # Otros nodos
+        node_colors.append('blue')
+
+# Dibujar los nodos y las aristas del grafo
+nx.draw(graph, pos=node_pos, node_color=node_colors, node_size=20, edge_color='gray', ax=ax)
+nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
+
+# Dibujar la ruta completa de cada recorrido aleatorio en amarillo
+for idx, paths in enumerate(all_paths):
+    path_edges = [(paths[i], paths[i+1]) for i in range(len(paths) - 1)]
+    nx.draw_networkx_edges(graph, pos=node_pos, edgelist=path_edges, edge_color='brown', width=2.0, ax=ax)
+
+plt.title("Todos los recorridos generados")
+plt.show()
