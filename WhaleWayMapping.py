@@ -10,8 +10,6 @@ from shapely.geometry import Point
 from sklearn.neighbors import BallTree
 import numpy as np
 import heapq
-import math
-import random
 import sys
 
 # Definir la clase Tienda
