@@ -154,6 +154,8 @@ def main(args):
 
     for j in range(len(nodos)-1):
         path, distance, productos, entregados = dijkstra_con_reparto(graph, nodos[j], nodos[j+1], tiendas_productos)
+        print(f"Recorrido {j+1}:")
+        print(path) # imprimir el camido actual
         paths.extend(path)  # Extender el camino actual al final de la lista paths
         total_distance += distance
         for tienda in productos:
@@ -177,7 +179,7 @@ def main(args):
 
     # Mostrar todos los recorridos en el grafo
     fig, ax = plt.subplots(figsize=(12, 12))
-    ox.plot_graph(graph, ax=ax, node_color='blue', node_size=10, edge_color='gray', show=False, close=False)
+    ox.plot_graph(graph, ax=ax, node_color='blue', node_size=2, edge_color='gray', show=False, close=False)
     node_pos = {node: (data['x'], data['y']) for node, data in graph.nodes(data=True)}
     edge_weights = nx.get_edge_attributes(graph, 'weight')
 
@@ -192,7 +194,7 @@ def main(args):
             node_colors.append('blue')
 
     # Dibujar los nodos y las aristas del grafo
-    nx.draw(graph, pos=node_pos, node_color=node_colors, node_size=20, edge_color='gray', ax=ax)
+    nx.draw(graph, pos=node_pos, node_color=node_colors, node_size=10, edge_color='gray', ax=ax)
     nx.draw_networkx_edge_labels(graph, pos=node_pos, edge_labels=edge_weights, ax=ax, font_size=5, font_color='purple')
 
     # Dibujar la ruta completa de cada recorrido aleatorio en amarillo
